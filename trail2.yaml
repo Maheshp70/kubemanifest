@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: trail3
+spec:
+  containers:
+    - name: runningalpine
+      image: Alpine
+      arg:
+       - sleep
+       - 1d

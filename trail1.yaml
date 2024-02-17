@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: trail1
+  labels:
+    name: myapp
+spec:
+  containers:
+  - name: dyingcontainer
+    image: Alpine
+

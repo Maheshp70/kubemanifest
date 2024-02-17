@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: trail5
+  labels:
+    name: nginx
+spec:
+  initContainers:
+    - name: init1
+      image: alpine
+      args:
+        - sleep
+        - 10s
+    - name: init2
+      image: alpine
+      args:
+        - sleep
+        - 10s
+    - name: init3
+      image: alpine
+      args:
+        - sleep
+        - 10s
+  containers:
+    - name: nginx
+      image: nginx
+      resources:
+        limits:
+          memory: "128Mi"
+          cpu: "500m"
+      ports:
+        - containerPort: 80
+    - name: sidecar
+      image: httpd
+      resources:
+        limits:
+          memory: "128Mi"
+          cpu: "500m"
+      args:
+        - sleep
+        - 1d
